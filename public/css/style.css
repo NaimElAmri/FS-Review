@@ -18,7 +18,7 @@ body > .container {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: #961105;
+  background-color: #7a0f06;
 }
 .footer > .container {
   padding-right: 15px;
@@ -29,8 +29,67 @@ header{
   background-color: #961105;
 }
 
-nav ul li ul{
+header a{
+  color: #FFFFFF;
+}
 
-  display: none;
+header a:hover{
+  color: #FFFFFF;
+}
+
+nav{
+  border-bottom: 0.5px solid #000000;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  
+}
+
+nav ul li { 
+  text-align: center;
+  width: 100%;
+}
+
+nav ul li ul li {
+  flex: none;
+  width: 100%;
+}
+
+nav ul li ul { 
+  display: none; 
   position: absolute;
+  margin-left: -37px;
+}
+
+nav ul li a { 
+  padding: 5px; 
+  display: block;
+}
+
+#Menubar a{
+  /* font-family: 'Karla', sans-serif; */
+  text-decoration: none;
+  background-color: #961105;
+}
+
+#Menubar a:hover{
+  text-decoration: underline;
+}
+
+nav li:hover ul{
+  text-align: center;
+  display:block;
+}
+
+footer span{
+  color: #FFFFFF;
+}
+
+#signup{
+}
+
+#signup:hover{
+  color: blue;
+  text-decoration: underline;
 }

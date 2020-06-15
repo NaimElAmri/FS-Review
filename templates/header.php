@@ -19,7 +19,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto" id="Menubar">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home</a>
             </li>
@@ -28,10 +28,13 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="/kategorie">Kategorie</a>
               <ul>
-                <li class="nav-item"><a class="nav-link" href="/kategorie/komödie">Komödie</a></li>
+                <li class="nav-item"><a class="nav-link" href="/kategorie/komoedie">Komödie</a></li>
                 <li class="nav-item"><a class="nav-link" href="/kategorie/action">Action</a></li>
                 <li class="nav-item"><a class="nav-link" href="/kategorie/drama">Drama</a></li>
               </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/login">Login</a>
             </li>
           </ul>
         </div>

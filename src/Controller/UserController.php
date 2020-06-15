@@ -53,4 +53,18 @@ class UserController
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /user');
     }
+
+    public function login(){
+        $view = new View('user/login');
+        $view->title = 'Login';
+        $view->heading = 'Login';
+        $view->display();
+    }
+
+    public function signup(){
+        $view = new View('user/signup');
+        $view->title = 'Sign Up';
+        $view->heading = 'Sign Up';
+        $view->display();
+    }
 }
