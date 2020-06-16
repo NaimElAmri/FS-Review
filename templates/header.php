@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/yourcode.js%22%3E"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
 
@@ -14,7 +16,7 @@
 
     <header>
       <nav class="navbar navbar-expand-md">
-        <a class="navbar-brand" href="/">F&S Review</a>
+        <a class="navbar-brand" href="/"><span>F&S Review</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,10 +38,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/user/login">Login</a>
             </li>
+            <form action="/user/doLogin" method="post" class="col-6">
+              <button name="logout" class="btn btn-primary">ausloggen</button>
+            </form>
+            <li class="nav-item">
+              <?= $_SESSION["user"]?>
+            </li>
           </ul>
         </div>
+        
+        <a class="fa fa-question nav-link" href="/default/hilfe"> Hilfe</a>
       </nav>
     </header>
 
-    <main class="container">
+    <main class=container>
       <h1><?= $heading; ?></h1>

@@ -46,4 +46,33 @@ class UserRepository extends Repository
 
         return $statement->insert_id;
     }
+
+    public function login($email, $password){
+
+        //Abfrage auf der Datenbank
+        $query = "Select email, password from $this->tableName where email = ?";
+
+        //
+        $statement = connectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $email);
+
+        // Das Statement absetzen
+        $statement->execute();
+
+        //Resultat der Abfrage auslesen
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+        
+        $row = $result->fetch_object();
+
+        $result->close();
+        if($row->email == $email && $row->password == sha1($password)){
+            
+            $_SESSION["loggedin"] = true;
+            $_SESSION["user"] = $row->email;
+        }
+
+    }
 }

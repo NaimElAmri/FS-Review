@@ -61,10 +61,38 @@ class UserController
         $view->display();
     }
 
+    public function doLogin(){
+        //Damit man auf das Repository zugreifen kann
+        $userRepository = new UserRepository();
+        //führt die Methode aus userRepository aus
+        $userRepository->login($_POST['email'], $_POST['password']);
+        //Geht zum Header zurück wenn man eingeloggt ist
+        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+            header("location: login");
+            exit;
+        }
+        else{
+            header("location: /default/index");
+        }
+    }
+
     public function signup(){
         $view = new View('user/signup');
         $view->title = 'Sign Up';
         $view->heading = 'Sign Up';
         $view->display();
+    }
+
+    public function logout(){
+
+        $_SESSION = array();
+        // Finally, destroy the session.
+        session_destroy();
+
+        
+        session_start();
+        $_SESSION['loggedin'] = false;
+
+        header('Location: /user/login');
     }
 }

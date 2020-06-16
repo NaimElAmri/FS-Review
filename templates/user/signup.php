@@ -26,6 +26,9 @@
 			<label class="control-label" for="password">Passwort</label>
 			<input id="password" name="password" type="password" class="form-control">
 		</div>
+		<div class="form-group">
+			<a id="signup" href="../user/login">Du hast doch ein Konto? Logge dich hier ein!</a>
+		</div>
 		<button type="submit" name="send" class="btn btn-primary">Absenden</button>
 	</form>
 </div>

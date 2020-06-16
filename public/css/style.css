@@ -5,10 +5,10 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 0px 5px 0px 5px;
 }
 body > .container {
-  padding: 80px 15px 0;
+  padding: 15px;
 }
 
 .footer {
@@ -28,18 +28,18 @@ body > .container {
 header{
   background-color: #961105;
 }
-
-header a{
+header span{
   color: #FFFFFF;
 }
 
-header a:hover{
+nav a{
+  color: grey;
+}
+
+nav a:hover{
   color: #FFFFFF;
 }
 
-nav{
-  border-bottom: 0.5px solid #000000;
-}
 nav ul {
   list-style: none;
   display: flex;
@@ -73,10 +73,6 @@ nav ul li a {
   background-color: #961105;
 }
 
-#Menubar a:hover{
-  text-decoration: underline;
-}
-
 nav li:hover ul{
   text-align: center;
   display:block;
@@ -86,10 +82,44 @@ footer span{
   color: #FFFFFF;
 }
 
-#signup{
-}
-
 #signup:hover{
   color: blue;
   text-decoration: underline;
+}
+
+.fa{
+  color: #FFFFFF;
+}
+
+.fa:hover{
+  border: #000000;
+  border-radius: 20px;
+  cursor: help;
+}
+
+.nib{
+  border-style: outset ;
+  border-radius: unset;
+}
+
+/* Startseite */
+#img1 {
+  float: center;
+  height: 100%;
+  width: auto;
+  height: 300pt;
+  padding: 0 0 0 30px;
+}
+
+
+.col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 50px 20px 50px;
+  padding: 20px;
+  height: 100%;
+  background-color: grey;
+  max-width: 100%;
+  border-radius: 15px;
 }

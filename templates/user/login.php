@@ -9,7 +9,7 @@
 
 	<body>
 	<div class="row">
-		<form action="/user/doCreate" method="post" class="col-6">
+		<form action="/user/doLogin" method="post" class="col-6">
 			<div class="form-group">
 			  <label for="email">Mail</label>
 	  		<input id="email" name="email" type="text" class="form-control">
