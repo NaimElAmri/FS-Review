@@ -73,6 +73,20 @@ class UserRepository extends Repository
             $_SESSION["loggedin"] = true;
             $_SESSION["user"] = $row->email;
         }
+    }
 
+    public function change($firstName, $lastName, $password, $id){
+
+        $password = sha1($password);
+
+        $query = "UPDATE $this->tableName SET firstName = ?, lastName = ?, password = ? where id = ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('sssi', $firstName, $lastName, $password, $id);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+        return $statement->insert_id;
     }
 }

@@ -31,7 +31,12 @@ class UserController
 
     public function doCreate()
     {
-        if (isset($_POST['send'])) {
+        if(empty($firstName) && empty($lastName) && empty($email) && empty($password) && !filter_var($email, FILTER_VALIDATE_EMAIL)){ // Validierung auf Controller verschieben!
+            header("location: login");
+            exit;
+        }
+        else 
+        {
             $firstName = $_POST['fname'];
             $lastName = $_POST['lname'];
             $email = $_POST['email'];
@@ -39,6 +44,9 @@ class UserController
 
             $userRepository = new UserRepository();
             $userRepository->create($firstName, $lastName, $email, $password);
+
+            // Anfrage an die URI /user weiterleiten (HTTP 302)
+            header('Location: /user');
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
@@ -70,11 +78,12 @@ class UserController
         //Geht zum Header zurück wenn man eingeloggt ist
         if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
             
-            header("location: /");
-        }
-        else{
             header("location: login");
             exit;
+        }
+        else{
+            
+            header("location: /");
         }
     }
 
@@ -93,5 +102,22 @@ class UserController
 
         header("location: /");
 
+    }
+
+    public function change(){
+
+        $userRepository = new UserRepository();
+        $view = new View('user/change');
+        $view->title = 'Ändern';
+        $view->heading = 'Ändern';
+        $view->user = $userRepository->readbyID($_GET['id']);
+        $view->display();
+    }
+
+    public function doChange(){
+        $userRepository = new UserRepository();
+		$userRepository->change($_POST['fname'], $_POST['lname'], $_POST['password'], $_POST['id']);
+
+		header("location: /user");
     }
 }
