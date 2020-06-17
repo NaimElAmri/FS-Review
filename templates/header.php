@@ -36,11 +36,9 @@
               </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/user/login">Login</a>
+            <?php echo (isset($_SESSION["user"])?'<a class="nav-link" href="/user/logout">Logout</a>':'<a class="nav-link" href="/user/login">Login</a>')?>    
+            
             </li>
-            <form action="/user/logout" method="post" class="col-6">
-              <button name="logout" class="btn btn-primary">ausloggen</button>
-            </form>
             <li class="nav-item">
               <?php echo (isset($_SESSION["user"])?$_SESSION["user"]:'')?>
             </li>

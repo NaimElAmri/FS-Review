@@ -47,9 +47,10 @@ class UserController
 
     public function delete()
     {
+        //Verbindung zum UserRepository herstellend und die Methode deleteById ausführen.
         $userRepository = new UserRepository();
         $userRepository->deleteById($_GET['id']);
-
+        
         // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /user');
     }
@@ -67,12 +68,13 @@ class UserController
         //führt die Methode aus userRepository aus
         $userRepository->login($_POST['email'], $_POST['password']);
         //Geht zum Header zurück wenn man eingeloggt ist
-        if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-            header("location: login");
-            exit;
+        if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+            
+            header("location: /");
         }
         else{
-            header("location: /");
+            header("location: login");
+            exit;
         }
     }
 
