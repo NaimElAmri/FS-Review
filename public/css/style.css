@@ -59,6 +59,7 @@ nav ul li ul li {
 nav ul li ul { 
   display: none; 
   position: absolute;
+  z-index: 1000;
   margin-left: -37px;
 }
 

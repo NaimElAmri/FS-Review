@@ -15,8 +15,8 @@ class KategorieController
 
     public function komoedie(){
         $view = new View('kategorie/komödie');
-        $view->title = 'Komödie';
-        $view->heading = 'Komödie';
+        $view->title = 'Komödien';
+        $view->heading = 'Komödien';
         $view->display();
     }
 

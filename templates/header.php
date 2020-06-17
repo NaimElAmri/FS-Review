@@ -38,11 +38,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/user/login">Login</a>
             </li>
-            <form action="/user/doLogin" method="post" class="col-6">
+            <form action="/user/logout" method="post" class="col-6">
               <button name="logout" class="btn btn-primary">ausloggen</button>
             </form>
             <li class="nav-item">
-              <?= $_SESSION["user"]?>
+              <?php echo (isset($_SESSION["user"])?$_SESSION["user"]:'')?>
             </li>
           </ul>
         </div>

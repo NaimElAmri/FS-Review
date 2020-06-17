@@ -72,7 +72,7 @@ class UserController
             exit;
         }
         else{
-            header("location: /default/index");
+            header("location: /");
         }
     }
 
@@ -85,14 +85,11 @@ class UserController
 
     public function logout(){
 
-        $_SESSION = array();
+        unset($_SESSION);
         // Finally, destroy the session.
         session_destroy();
 
-        
-        session_start();
-        $_SESSION['loggedin'] = false;
+        header("location: /");
 
-        header('Location: /user/login');
     }
 }
